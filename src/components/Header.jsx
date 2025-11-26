@@ -8,7 +8,7 @@ export default function Header () {
 
             <nav>
                 <Link to="/">Início</Link>
-                <Link to="/items">Itens</Link>
+                <Link to="/stock-item">Itens</Link>
             </nav>
             
         </header>
