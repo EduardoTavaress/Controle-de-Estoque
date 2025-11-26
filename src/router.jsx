@@ -3,6 +3,7 @@ import Home from "./pages/Home";
 import StockItem from "./pages/StockItem";
 import AllItems from "./pages/AllItens";
 import NewItem from "./pages/NewItem";
+import ViewItem from "./pages/ViewItem";
 
 const router = createBrowserRouter([
     {
@@ -25,6 +26,10 @@ const router = createBrowserRouter([
                 path: "novo-item",
                 element: <NewItem />,
             },
+            {
+                path: "ver/:id",
+                element: <ViewItem />,
+            }
         ],
     },
 ]);
