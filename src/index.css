@@ -30,6 +30,11 @@ body {
   min-height: 100vh;
 }
 
+.app {
+  display: grid;
+  grid-auto-flow: column;
+}
+
 h1 {
   font-size: 3.2em;
   line-height: 1.1;
