@@ -1,28 +1,40 @@
+import { Link } from 'react-router-dom';
 import data from '../database.json';
 
 export default function AllItems() {
     return (
-        <div>
+       <div>
             {data.map(item => (
                 <div key={item.id}>
-            <h3>{item.name}</h3>
-            <button>Atualizar</button>
-            <button>Excluir</button>
+                    <ul>
+                        <li>ID</li>
+                        <p>{item.id}</p>
 
-            <div>
-                <span>Categoria: {item.category}</span>
-                <span>Quatidade em estoque: {item.quantity}</span>
-                <span>Preço: {item.price}</span>
-            </div>
-            <p>{item.description}</p>
+                        <li>Nome</li>
+                        <p>{item.name}</p>
 
-           
+                        <li>Em estoque</li>
+                        <p>{item.quantity}</p>
 
-            <p>Cadastro em: {item.createdAt} - <small>Atualizado em: {item.updatedAt}</small></p> 
-            
-            </div>
+                        <li>Categoria</li>
+                        <p>{item.category}</p>
+
+
+                        <li>Ações</li>
+                        <div>
+                             <Link to={`/stock-item/ver/${item.id}`}>
+                                <button>Ver</button>
+                            </Link>
+
+                            <button>Atualizar</button>
+                            <button>Excluir</button>
+                        </div>
+                    
+                    </ul>
+                </div>    
+                
             ))}
-
-        </div>
+            
+       </div>
     );
 }
