@@ -1,21 +1,27 @@
+import data from '../database.json';
+
 export default function AllItems() {
     return (
         <div>
-            <h3>Nome do produto do BD</h3>
+            {data.map(item => (
+                <div key={item.id}>
+            <h3>{item.name}</h3>
             <button>Atualizar</button>
             <button>Excluir</button>
 
             <div>
-                <span>Categoria: do Bd</span>
-                <span>Quatidade em estoque: do BD</span>
-                <span>Preço: do BD</span>
+                <span>Categoria: {item.category}</span>
+                <span>Quatidade em estoque: {item.quantity}</span>
+                <span>Preço: {item.price}</span>
             </div>
-            <p>descrição do BD</p>
+            <p>{item.description}</p>
 
            
 
-            <p>cadastro: do BD - <small>Atualizado em: do BD</small></p> 
+            <p>Cadastro em: {item.createdAt} - <small>Atualizado em: {item.updatedAt}</small></p> 
             
+            </div>
+            ))}
 
         </div>
     );
