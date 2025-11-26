@@ -1,0 +1,19 @@
+[
+    {
+        "id": 1,
+        "name": "7 Wonders",
+        "quantity": 8,
+        "price": 399.99,
+        "category": "jogos" ,
+        "description": "jogo de tabuleiro para vários jogadores"
+    },
+    {
+        "id": 2,
+        "name": "Catan",
+        "quantity": 5,
+        "price": 299.99,
+        "category": "jogos",
+        "description": "jogo de estratégia e negociação"
+    }
+    
+]
