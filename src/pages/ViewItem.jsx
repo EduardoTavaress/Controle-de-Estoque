@@ -1,11 +1,18 @@
 import data from '../database.json';
+import { useParams } from 'react-router-dom';
 
 
 export default function ViewItem() {
+    const { id } = useParams();
+    const item = data.find(item => item.id == id);
+
+    if (!item) {
+        return <div>Item não encontrado</div>;
+    }
+
     return (
          <div>
-            {data.map(item => (
-                <div key={item.id}>
+            
             <h3>{item.name}</h3>
             <button>Atualizar</button>
             <button>Excluir</button>
@@ -19,8 +26,7 @@ export default function ViewItem() {
 
             <p>Cadastro em: {item.createdAt} - <small>Atualizado em: {item.updatedAt}</small></p> 
             
-            </div>
-            ))}
+        
 
         </div>
     );
