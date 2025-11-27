@@ -4,21 +4,20 @@ import Header from "../components/Header";
 export default function StockItem() {
 
 
-    function handleAllItems() {
-        // Lógica para exibir todos os items
-         
-    }
-
   return (
     <div>
       <Header />
 
       <section>
-        <h1>Stock Item </h1>
-        <div>
-            <Link to="todos-os-items">Todos os Items</Link>
-            <Link to="novo-item">Novo Item</Link>
-        </div>
+        <h1 className="stock-title">Stock Item </h1>
+
+        
+        <nav className="stock-nav">
+            <Link className="header-link-stock" to="todos-os-items">Todos os Items</Link>
+            <Link className="header-link-stock" to="novo-item">Novo Item</Link>
+        </nav>
+
+<hr />
         <div>
 
             <Outlet />

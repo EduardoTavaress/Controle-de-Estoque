@@ -4,37 +4,40 @@ import data from '../database.json';
 export default function AllItems() {
     return (
        <div>
+            <table className="stock-table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nome</th>
+                        <th>Em estoque</th>
+                        <th>Categoria</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+
+         <tbody>
             {data.map(item => (
-                <div key={item.id}>
-                    <ul>
-                        <li>ID</li>
-                        <p>{item.id}</p>
-
-                        <li>Nome</li>
-                        <p>{item.name}</p>
-
-                        <li>Em estoque</li>
-                        <p>{item.quantity}</p>
-
-                        <li>Categoria</li>
-                        <p>{item.category}</p>
-
-
-                        <li>Ações</li>
-                        <div>
+                <tr key={item.id}>
+                    <td>{item.id}</td>
+                    <td>{item.name}</td>
+                    <td>{item.quantity}</td>
+                    <td>{item.category}</td>
+                    <td>
+                        <div className="action">
                              <Link to={`/stock-item/ver/${item.id}`}>
-                                <button>Ver</button>
+                                <button className='btn-view'>Ver</button>
                             </Link>
 
-                            <button>Atualizar</button>
-                            <button>Excluir</button>
+                            <button className='btn-update'>Atualizar</button>
+                            <button className='btn-delete'>Excluir</button>
                         </div>
                     
-                    </ul>
-                </div>    
+                    </td>
+                </tr>    
                 
             ))}
-            
+            </tbody>
+           </table> 
        </div>
     );
 }

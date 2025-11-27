@@ -1,44 +1,249 @@
-:root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
+/* ====== RESET BÁSICO ====== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: system-ui, sans-serif;
 }
 
 body {
-  margin: 0;
-  display: flex;
+  background-color: #1f1f1f;
+  color: #fff;
   padding: 2rem;
-  min-width: 320px;
-  min-height: 100vh;
 }
 
-.app {
+/* ====== HEADER ====== */
+header {
+  margin-bottom: 2rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.header-link {
+  color: #fff;
+  margin: 1rem;
+  text-decoration: none;
+  font-size: 1.1rem;
+}
+
+header h1 {
+  font-size: 2.8rem;
+  font-weight: 300;
+}
+
+header h2 {
+  font-size: 1.4rem;
+  margin-top: 0.2rem;
+}
+
+/* ====== CARDS DO DASHBOARD ====== */
+.cards-container {
   display: grid;
-  grid-auto-flow: column;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  margin-top: 2rem;
+  margin-bottom: 3rem;
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+.card {
+  background-color: #2a2a2a;
+  color: #fff;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.3);
 }
+
+.card p {
+  font-size: 1.5rem;
+  
+}
+
+.card h3 {
+  font-size: 2.3rem;
+  margin-top: 0.8rem;
+  text-align: center;
+}
+
+/* ====== TABELAS ====== */
+.tables-wrapper {
+  display: flex;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.table-section {
+  flex: 1;
+}
+
+.table-section {
+  margin-bottom: 3rem;
+  background-color: #2a2a2a;
+  padding: 1.5rem;
+  border-radius: 8px;
+}
+
+.table-header {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.table-header-3 {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.table-row {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  padding: 0.8rem 0;
+  border-bottom: 1px solid #3a3a3a;
+}
+
+.table-row-3 {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  padding: 0.8rem 0;
+  border-bottom: 1px solid #3a3a3a;
+}
+
+.table-row span,
+.table-row-3 span {
+  display: flex;
+  align-items: center;
+}
+
+/* ====== BOTÕES ====== */
+button {
+  padding: 0.4rem 1rem;
+  border-radius: 6px;
+  border: none;
+  background-color: #f0f0f0;
+  color: #000;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: 0.2s;
+}
+
+button:hover {
+  background-color: #dcdcdc;
+}
+
+
+/* ====== STOCK ITEMS HEADER ====== */
+.header-link-stock {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1.1rem;
+  margin-right: 1rem;
+  margin-bottom: 1rem;
+}
+
+.header-link-stock:hover {
+  border-bottom: #1b63db 2px solid;
+  color: #747bff;
+}
+
+.stock-title {
+  font-size: 2.5rem;
+  font-weight: 300;
+  margin-bottom: 1rem;
+}
+
+.stock-table {
+  width: 100%;
+  margin-top:3rem;
+  border-collapse: separate; /* para espaçamento entre linhas */
+  border-spacing: 0 1rem; /* espaçamento entre as linhas */
+  background-color: #2a2a2a;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.stock-table thead {
+  background-color: #1f1f1f;
+}
+
+.stock-table th,
+.stock-table td {
+  padding: 1rem;
+  text-align: left;
+  vertical-align: middle;
+}
+
+.stock-table th {
+  font-weight: bold;
+  color: #ddd;
+}
+
+.stock-table tbody tr {
+  background-color: #1c1c1c;
+  border-radius: 8px;
+}
+
+.stock-table tbody tr:hover {
+  background-color: #333;
+}
+
+.actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.btn-view {
+  background: #2d7dff;
+  border: none;
+  padding: 0.4rem 1rem;
+  border-radius: 6px;
+  color: white;
+  cursor: pointer;
+
+  
+}
+
+.btn-update {
+  background: #ffffff;
+  border: none;
+  padding: 0.4rem 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
+
+.btn-delete {
+  background: #d93636;
+  border: none;
+  padding: 0.4rem 1rem;
+  border-radius: 6px;
+  color: white;
+  cursor: pointer;
+}
+
+.btn-view:hover {
+  background: #1b63db;
+}
+
+.btn-update:hover {
+  background: #e6e6e6;
+}
+
+.btn-delete:hover {
+  background: #b92f2f;
+}
+
+
+
+/* ====== RODAPÉ ====== */
+footer {
+  text-align: center;
+  margin-top: 3rem;
+  opacity: 0.6;
+}
+
 
 button {
   border-radius: 8px;
@@ -47,7 +252,7 @@ button {
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
-  background-color: #1a1a1a;
+  background-color: #ffffff;
   cursor: pointer;
   transition: border-color 0.25s;
 }
