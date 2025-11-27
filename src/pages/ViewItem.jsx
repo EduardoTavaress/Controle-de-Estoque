@@ -11,23 +11,43 @@ export default function ViewItem() {
     }
 
     return (
-         <div>
-            
+         <div className="view-item">
+
+            <div className="view-header">
+
             <h3>{item.name}</h3>
-            <button>Atualizar</button>
-            <button>Excluir</button>
+            
+            <div className="view-actions">
 
-            <div>
-                <span>Categoria: {item.category}</span>
-                <span>Quatidade em estoque: {item.quantity}</span>
-                <span>Preço: {item.price}</span>
+             <button className='btn-update'>Atualizar</button>
+                            <button className='btn-delete'>Excluir</button>
+
             </div>
-            <p>{item.description}</p>
+        </div>
 
-            <p>Cadastro em: {item.createdAt} - <small>Atualizado em: {item.updatedAt}</small></p> 
+ <div className="info-cards">
+        <div className="info-card">
+          <span className="label">Categoria:</span> {item.category}
+        </div>
+
+        <div className="info-card">
+          <span className="label">Quantidade em estoque:</span> {item.quantity}
+        </div>
+
+        <div className="info-card">
+          <span className="label">Preço:</span> R$ {Number(item.price).toFixed(2)}
+        </div>
+      </div>
+            <p className='description'>{item.description}</p>
+
+    <div className="dates">
+        <span>Cadastrado em: {item.createdAt}</span>
+        <span>Atualizado em: {item.updatedAt}</span>
+      </div>            
+            </div>
             
         
 
-        </div>
+        
     );
 }   

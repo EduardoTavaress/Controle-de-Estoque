@@ -235,6 +235,139 @@ button:hover {
   background: #b92f2f;
 }
 
+/* ===== NEW ITEM FORM ===== */
+
+.new-item-form {
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+/* Linha com 4 inputs */
+.input-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.input-group label {
+  font-size: 0.9rem;
+  color: #ccc;
+}
+
+/* Inputs, selects, textarea */
+.input-group input,
+.input-group select,
+.input-group textarea {
+  background-color: #111;
+  border: 1px solid #333;
+  padding: 0.8rem;
+  border-radius: 6px;
+  color: white;
+  font-size: 1rem;
+  width: 100%;
+}
+
+.input-group textarea {
+  height: 170px;
+  resize: vertical;
+}
+
+/* Textarea ocupando a largura total */
+.input-group.full {
+  grid-column: span 4;
+}
+
+/* Botão salvar */
+.btn-save {
+  background-color: #2d7dff;
+  color: white;
+  border: none;
+  padding: 0.8rem 1.8rem;
+  font-size: 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.btn-save:hover {
+  background-color: #1b63db;
+}
+
+
+/* ===== VIEW ITEM PAGE ===== */
+
+.view-item {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin-top: 1rem;
+}
+
+/* Header com título + botões */
+.view-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.view-header h3 {
+  font-size: 1.6rem;
+  margin-right: 1rem;
+}
+
+/* Botões */
+.view-action {
+  padding: 0.4rem 1rem;
+  border: none;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+
+/* Cards com informações */
+.info-cards {
+  display: flex;
+  gap: 2rem;
+  margin-top: 1rem;
+}
+
+.info-card {
+  background-color: #111;
+  padding: 1rem 2rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  box-shadow: 0 0 8px #0004;
+}
+
+.info-card .label {
+  font-weight: bold;
+  margin-right: .4rem;
+}
+
+/* Descrição */
+.description {
+  font-size: 1.1rem;
+  margin-top: 1rem;
+}
+
+/* Datas */
+.dates {
+  display: flex;
+  gap: 3rem;
+  margin-top: 1rem;
+  font-size: 0.95rem;
+  opacity: 0.85;
+}
+
 
 
 /* ====== RODAPÉ ====== */
@@ -245,7 +378,7 @@ footer {
 }
 
 
-button {
+button, input, select, textarea {
   border-radius: 8px;
   border: 1px solid transparent;
   padding: 0.6em 1.2em;
