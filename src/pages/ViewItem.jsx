@@ -1,13 +1,50 @@
-import data from '../database.json';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
+import { useEffect, useState } from 'react';
 
 
 export default function ViewItem() {
+
+   const [data, setData]  = useState ([])
+
+  useEffect (() => {
+    fetch ('http://localhost:3001/items')
+    .then (response => response.json())
+    .then (json => setData (json))
+    .catch (error => console.error ('Erro ao buscar dados:', error));
+  }, [])
+  
     const { id } = useParams();
+    const navigate = useNavigate();
+
+    if (data.length === 0) {
+    return <div>Carregando...</div>;
+  }
+  
     const item = data.find(item => item.id == id);
 
     if (!item) {
         return <div>Item não encontrado</div>;
+    }
+
+
+    function handleDelete() {
+
+      const confirmDelete = confirm(`Tem certeza que deseja excluir ${item.name} ?`);
+
+      if (!confirmDelete) {
+        return;
+      }
+
+      fetch(`http://localhost:3001/items/${item.id}`, {
+        method: 'DELETE',
+      })
+      .then(() => {
+        alert("Item excluído com sucesso!");
+        navigate("/stock-item/todos-os-items");
+      })
+      .catch((error) => {
+        console.error("Erro ao excluir item:", error);
+      });
     }
 
     return (
@@ -18,9 +55,9 @@ export default function ViewItem() {
             <h3>{item.name}</h3>
             
             <div className="view-actions">
-
-             <button className='btn-update'>Atualizar</button>
-                            <button className='btn-delete'>Excluir</button>
+      
+             <button className='btn-update' onClick={() => navigate (`/stock-item/atualizar/${item.id}`)}>Atualizar</button>
+             <button className='btn-delete' onClick={handleDelete}>Excluir</button>
 
             </div>
         </div>

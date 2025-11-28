@@ -1,14 +1,25 @@
 import { useNavigate } from "react-router-dom";
 import Header from "../components/Header";
-import data from "../database.json";
+import { useEffect, useState } from "react";
 
 export default function Home() {
 
   const navigate = useNavigate();
 
+  const [data, setData]  = useState ([])
+
+  useEffect (() => {
+    fetch ('http://localhost:3001/items')
+    .then (response => response.json())
+    .then (json => setData (json))
+    .catch (error => console.error ('Erro ao buscar dados:', error));
+  }, [])
+
+ 
+
   // Cálculos
   const diversidade = data.length;
-  const inventarioTotal = data.reduce((total, item) => total + item.quantity, 0);
+  const inventarioTotal = data.reduce((total, item) => total + Number(item.quantity), 0);
 
   const itensRecentes = data.filter(item => {
     const days = 7;

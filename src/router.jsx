@@ -4,6 +4,7 @@ import StockItem from "./pages/StockItem";
 import AllItems from "./pages/AllItens";
 import NewItem from "./pages/NewItem";
 import ViewItem from "./pages/ViewItem";
+import AtualizationItem from "./pages/AtualizationItem";
 
 const router = createBrowserRouter([
     {
@@ -29,7 +30,11 @@ const router = createBrowserRouter([
             {
                 path: "ver/:id",
                 element: <ViewItem />,
-            }
+            },
+            {
+                path: "atualizar/:id",
+                element: <AtualizationItem />,
+            },
         ],
     },
 ]);
